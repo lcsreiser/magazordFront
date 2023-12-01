@@ -13,22 +13,24 @@ const modalLanguage = document.querySelector("#modal-language");
 const btnCloseType = document.querySelector("#close-type");
 const btnCloseLanguage = document.querySelector("#close-language");
 const checkboxes = document.querySelectorAll(".options input");
-const valorInput = document.getElementById("input-search");
+const valorInput = document.querySelector("#input-search");
+const inputProfile = document.querySelector("#input-profile")
 
 let json;
 let arrRepos;
 let arrStars
 
-async function getApiGithub() {
-    await fetch('https://api.github.com/users/lcsreiser')
+const link = `https://api.github.com/users/lcsreiser`
+async function getApiGithub(url) {
+    await fetch(`${url}`)
         .then(async res => {
             if (!res.ok) {
                 throw new Error(res.status);
             }
             json = await res.json()
-        }).catch(e => console.log(e))
+        }).catch(e => alert("O Usuário não existe"))
 
-    await fetch('https://api.github.com/users/lcsreiser/repos')
+    await fetch(`${url}/repos`)
         .then(async res => {
             if (!res.ok) {
                 throw new Error(res.status);
@@ -36,7 +38,7 @@ async function getApiGithub() {
             arrRepos = await res.json()
         }).catch(e => console.log(e))
 
-    await fetch('https://api.github.com/users/lcsreiser/starred')
+    await fetch(`${url}/starred`)
         .then(async res => {
             if (!res.ok) {
                 throw new Error(res.status);
@@ -181,6 +183,11 @@ async function getApiGithub() {
         checkboxLabel = []
     }
 
+    inputProfile.onchange = function (event) {
+        user = event.target.value
+        getApiGithub(`https://api.github.com/users/${user}`)
+    }
+
 };
 
-getApiGithub()
+getApiGithub(link)

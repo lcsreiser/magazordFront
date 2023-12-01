@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Magazord</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="div-row" id="header">
+        <img src="/assets/github2.svg" alt="vetor do logo github">
+        <p>/</p>
+        <p>Profile</p>
+    </header>
+    <div id="container">
+        <div id="containt-user">
+            <div id="user-info">
+                <img id="user-image" src="" alt="">
+                <h2 id="user-name"></h2>
+                <p id="user-description"></p>
+                <p id="more-infos">Informações Adicionais</p>
+                <div>
+                    <img id="up-down" src="/assets/down.svg" alt="vetor de uma flecha para baixo">
+                </div>
+            </div>
+            <div id="infos-show-hidden" class="back-gray inside-back-gray hidden">
+                <div id="user-company" class="div-row inside-back-gray">
+                    <img src="/assets/enterprise.svg" alt="vetor de um prédio" class="v1">
+                    <p></p>
+                </div>
+                <div id="user-location" class="div-row inside-back-gray">
+                    <img src="/assets/location.svg" alt="vetor de uma localização" class="v1">
+                    <p></p>
+                </div>
+                <div id="user-blog" class="div-row inside-back-gray">
+                    <img src="/assets/link.svg" alt="vetor de uma corrente" class="v1">
+                    <p></p>
+                </div>
+                <div id="user-twitter" class="div-row inside-back-gray">
+                    <img src="/assets/social.svg" alt="vetor de uma rede social" class="v1">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <div id="containt-repos">
+            <div class="div-row containt-repos-stars">
+                <div class="div-row repos-stars" id="my-repos">
+                    <img src="/assets/repos.svg" alt="vetor de um livro" class="v2">
+                    <p class="tag-margin">Repositories</p>
+                    <div class="n-repostars">
+                        <p id="n-repositories">0</p>
+                    </div>
+                </div>
+                <div class="div-row repos-stars" id="my-stars">
+                    <img src="/assets/star.svg" alt="vetor de uma estrela" class="v2">
+                    <p class="tag-margin">Starred</p>
+                    <div class="n-repostars">
+                        <p id="n-stars">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div-row back-gray" id="containt-type-language">
+                <div id="modal-type" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="close-type">&times;</span>
+                        <div class="options">
+                            <input type="checkbox" id="op1" class="input-margin">
+                            <label for="op1">All</label>
+                        </div>
+                        <div class="options">
+                            <input type="checkbox" id="op2" class="input-margin">
+                            <label for="op2">Sources</label>
+                        </div>
+                        <div class="options">
+                            <input type="checkbox" id="op3" class="input-margin">
+                            <label for="op3">Forks</label>
+                        </div>
+                        <div class="options">
+                            <input type="checkbox" id="op4" class="input-margin">
+                            <label for="op4">Archived</label>
+                        </div>
+                        <div class="options">
+                            <input type="checkbox" id="op5" class="input-margin">
+                            <label for="op5">Mirrors</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="modal-language" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="close-language">&times;</span>
+                        <div class="options">
+                            <input type="checkbox" id="op6" class="input-margin">
+                            <label for="op6">All</label>
+                        </div>
+                        <div class="options">
+                            <input type="checkbox" id="op7" class="input-margin">
+                            <label for="op7">Java</label>
+                        </div>
+                        <div class="options">
+                            <input type="checkbox" id="op8" class="input-margin">
+                            <label for="op8">JavaScript</label>
+                        </div>
+                        <div class="options">
+                            <input type="checkbox" id="op9" class="input-margin">
+                            <label for="op9">HTML</label>
+                        </div>
+                        <div class="options">
+                            <input type="checkbox" id="op0" class="input-margin">
+                            <label for="op0">CSS</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-row" id="type-language">
+                    <div class="button">
+                        <img src="/assets/chevron-down.svg" alt="vetor de uma flecha para baixo">
+                        <button>Type</button>
+                    </div>
+                    <div class="button">
+                        <img src="/assets/chevron-down.svg" alt="vetor de uma flecha para baixo">
+                        <button>Language</button>
+                    </div>
+                </div>
+                <div id="search">
+                    <img id="input-img" src="/assets/search.svg" alt="vetor de uma lupa">
+                    <input id="input-search" type="text" placeholder="Search Here" value="">
+                </div>
+            </div>
+
+            <ul id="all-repos">
+                <!-- DINAMICAMENTE -->
+            </ul>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

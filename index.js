@@ -65,10 +65,10 @@ async function getApiGithub(url) {
     function hiddenShow() {
         if (infos.classList[2] === "hidden") {
             infos.classList.remove("hidden")
-            userInfo.children[4].children["up-down"].src = "/assets/up.svg"
+            userInfo.children[4].children["up-down"].src = "./assets/up.svg"
         } else {
             infos.classList.add("hidden")
-            userInfo.children[4].children["up-down"].src = "/assets/down.svg"
+            userInfo.children[4].children["up-down"].src = "./assets/down.svg"
         }
     }
 
@@ -78,9 +78,9 @@ async function getApiGithub(url) {
         allRepos.innerHTML = "";
         if (conditional) {
             myRepos.classList.add("clicked")
-            myRepos.children[0].src = "/assets/repos-clicked.svg"
+            myRepos.children[0].src = "./assets/repos-clicked.svg"
             myStars.classList.remove("clicked")
-            myStars.children[0].src = "/assets/star.svg"
+            myStars.children[0].src = "./assets/star.svg"
 
             arr.map(repo => {
                 let li = document.createElement('li');
@@ -91,9 +91,9 @@ async function getApiGithub(url) {
                     <div class="div-row"><h4 id="repo-name">${name} </h4> / <h4 id="repo-branch"> ${default_branch}</h4></div>
                     <div id="div-description">${description || "-"} </div>
                     <div class="div-row">
-                        <img src="/assets/starBlack.svg"/>
+                        <img src="./assets/starBlack.svg"/>
                         <p>${stargazers_count}</p>
-                        <img src="/assets/fork.svg"/>
+                        <img src="./assets/fork.svg"/>
                         <p>${forks_count}</p>
                     </div>
                     </a>
@@ -102,9 +102,9 @@ async function getApiGithub(url) {
             })
         } else {
             myStars.classList.add("clicked")
-            myStars.children[0].src = "/assets/star-clicked.svg"
+            myStars.children[0].src = "./assets/star-clicked.svg"
             myRepos.classList.remove("clicked")
-            myRepos.children[0].src = "/assets/repos.svg"
+            myRepos.children[0].src = "./assets/repos.svg"
 
             arr.map(repo => {
                 let li = document.createElement('li');
@@ -116,7 +116,7 @@ async function getApiGithub(url) {
                 <div id="div-description">${description || "sem descrição"} </div>
                 <div class="div-row">
                     <p>${language || "-"}</p>
-                    <img src="/assets/fork.svg"/>
+                    <img src="./assets/fork.svg"/>
                     <p>${forks_count}</p>
                 </div>
                 </a>

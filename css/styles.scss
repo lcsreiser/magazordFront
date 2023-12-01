@@ -32,8 +32,18 @@ header {
     align-items: center;
 }
 
-#header {
-    display: none;
+// #header {
+//     display: none;
+// }
+
+#input-profile {
+    background: transparent;
+    border: none;
+    color: $color-white;
+}
+
+#input-profile::placeholder {
+    color: $color-white
 }
 
 header>img {

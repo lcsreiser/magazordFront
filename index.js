@@ -13,22 +13,24 @@ const modalLanguage = document.querySelector("#modal-language");
 const btnCloseType = document.querySelector("#close-type");
 const btnCloseLanguage = document.querySelector("#close-language");
 const checkboxes = document.querySelectorAll(".options input");
-const valorInput = document.getElementById("input-search");
+const valorInput = document.querySelector("#input-search");
+const inputProfile = document.querySelector("#input-profile")
 
 let json;
 let arrRepos;
 let arrStars
 
-async function getApiGithub() {
-    await fetch('https://api.github.com/users/lcsreiser')
+const link = `https://api.github.com/users/lcsreiser`
+async function getApiGithub(url) {
+    await fetch(`${url}`)
         .then(async res => {
             if (!res.ok) {
                 throw new Error(res.status);
             }
             json = await res.json()
-        }).catch(e => console.log(e))
+        }).catch(e => alert("O Usuário não existe"))
 
-    await fetch('https://api.github.com/users/lcsreiser/repos')
+    await fetch(`${url}/repos`)
         .then(async res => {
             if (!res.ok) {
                 throw new Error(res.status);
@@ -36,7 +38,7 @@ async function getApiGithub() {
             arrRepos = await res.json()
         }).catch(e => console.log(e))
 
-    await fetch('https://api.github.com/users/lcsreiser/starred')
+    await fetch(`${url}/starred`)
         .then(async res => {
             if (!res.ok) {
                 throw new Error(res.status);
@@ -63,10 +65,10 @@ async function getApiGithub() {
     function hiddenShow() {
         if (infos.classList[2] === "hidden") {
             infos.classList.remove("hidden")
-            userInfo.children[4].children["up-down"].src = "/assets/up.svg"
+            userInfo.children[4].children["up-down"].src = "./assets/up.svg"
         } else {
             infos.classList.add("hidden")
-            userInfo.children[4].children["up-down"].src = "/assets/down.svg"
+            userInfo.children[4].children["up-down"].src = "./assets/down.svg"
         }
     }
 
@@ -76,9 +78,9 @@ async function getApiGithub() {
         allRepos.innerHTML = "";
         if (conditional) {
             myRepos.classList.add("clicked")
-            myRepos.children[0].src = "/assets/repos-clicked.svg"
+            myRepos.children[0].src = "./assets/repos-clicked.svg"
             myStars.classList.remove("clicked")
-            myStars.children[0].src = "/assets/star.svg"
+            myStars.children[0].src = "./assets/star.svg"
 
             arr.map(repo => {
                 let li = document.createElement('li');
@@ -89,9 +91,9 @@ async function getApiGithub() {
                     <div class="div-row"><h4 id="repo-name">${name} </h4> / <h4 id="repo-branch"> ${default_branch}</h4></div>
                     <div id="div-description">${description || "-"} </div>
                     <div class="div-row">
-                        <img src="/assets/starBlack.svg"/>
+                        <img src="./assets/starBlack.svg"/>
                         <p>${stargazers_count}</p>
-                        <img src="/assets/fork.svg"/>
+                        <img src="./assets/fork.svg"/>
                         <p>${forks_count}</p>
                     </div>
                     </a>
@@ -100,9 +102,9 @@ async function getApiGithub() {
             })
         } else {
             myStars.classList.add("clicked")
-            myStars.children[0].src = "/assets/star-clicked.svg"
+            myStars.children[0].src = "./assets/star-clicked.svg"
             myRepos.classList.remove("clicked")
-            myRepos.children[0].src = "/assets/repos.svg"
+            myRepos.children[0].src = "./assets/repos.svg"
 
             arr.map(repo => {
                 let li = document.createElement('li');
@@ -114,7 +116,7 @@ async function getApiGithub() {
                 <div id="div-description">${description || "sem descrição"} </div>
                 <div class="div-row">
                     <p>${language || "-"}</p>
-                    <img src="/assets/fork.svg"/>
+                    <img src="./assets/fork.svg"/>
                     <p>${forks_count}</p>
                 </div>
                 </a>
@@ -181,6 +183,11 @@ async function getApiGithub() {
         checkboxLabel = []
     }
 
+    inputProfile.onchange = function (event) {
+        user = event.target.value
+        getApiGithub(`https://api.github.com/users/${user}`)
+    }
+
 };
 
-getApiGithub()
+getApiGithub(link)

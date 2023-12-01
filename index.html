@@ -16,36 +16,36 @@
     <header class="div-row" id="header">
         <img src="./assets/github2.svg" alt="vetor do logo github">
         <p>/</p>
-        <p>Profile</p>
+        <input placeholder="Profile" id="input-profile"></input>
     </header>
-    <div id="container">
+    <main id="container">
         <div id="containt-user">
             <div id="user-info">
                 <img id="user-image" src="" alt="">
                 <h2 id="user-name"></h2>
                 <p id="user-description"></p>
                 <p id="more-infos">Informações Adicionais</p>
-                <div>
+                <figure>
                     <img id="up-down" src="./assets/down.svg" alt="vetor de uma flecha para baixo">
-                </div>
+                </figure>
             </div>
             <div id="infos-show-hidden" class="back-gray inside-back-gray hidden">
-                <div id="user-company" class="div-row inside-back-gray">
+                <figure id="user-company" class="div-row inside-back-gray">
                     <img src="./assets/enterprise.svg" alt="vetor de um prédio" class="v1">
-                    <p></p>
-                </div>
-                <div id="user-location" class="div-row inside-back-gray">
+                    <figcaption></figcaption>
+                </figure>
+                <figure id="user-location" class="div-row inside-back-gray">
                     <img src="./assets/location.svg" alt="vetor de uma localização" class="v1">
-                    <p></p>
-                </div>
-                <div id="user-blog" class="div-row inside-back-gray">
+                    <figcaption></figcaption>
+                </figure>
+                <figure id="user-blog" class="div-row inside-back-gray">
                     <img src="./assets/link.svg" alt="vetor de uma corrente" class="v1">
-                    <p></p>
-                </div>
-                <div id="user-twitter" class="div-row inside-back-gray">
+                    <figcaption></figcaption>
+                </figure>
+                <figure id="user-twitter" class="div-row inside-back-gray">
                     <img src="./assets/social.svg" alt="vetor de uma rede social" class="v1">
-                    <p></p>
-                </div>
+                    <figcaption></figcaption>
+                </figure>
             </div>
         </div>
         <div id="containt-repos">
@@ -132,11 +132,13 @@
                 </div>
             </div>
 
-            <ul id="all-repos">
-                <!-- DINAMICAMENTE -->
-            </ul>
+            <nav>
+                <ul id="all-repos">
+                    <!-- DINAMICAMENTE -->
+                </ul>
+            </nav>
         </div>
-    </div>
+    </main>
     <script src="index.js"></script>
 </body>
 

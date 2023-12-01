@@ -11,8 +11,18 @@ header {
   align-items: center;
 }
 
-#header {
-  display: none;
+#input-profile {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+}
+
+#input-profile::-moz-placeholder {
+  color: #FFFFFF;
+}
+
+#input-profile::placeholder {
+  color: #FFFFFF;
 }
 
 header > img {
